@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Water Heater Services",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "image": "lib/assets/heater.png",
+        "tools": 20,
+        "watchers": 90,
+        "likes": 35
+    },
+    {
+        "title": "Toilet Plumbing",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "image": "lib/assets/toilet.png",
+        "tools": 25,
+        "watchers": 40,
+        "likes": 15
+    },
+    {
+        "title": "Sump Pump Services",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "image": "lib/assets/sump.png",
+        "tools": 10,
+        "watchers": 20,
+        "likes": 32
+    },
+    {
+        "title": "Pipe / Leak Services",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "image": "lib/assets/pipe_leak.png",
+        "tools": 45,
+        "watchers": 70,
+        "likes": 36
+    }
+]

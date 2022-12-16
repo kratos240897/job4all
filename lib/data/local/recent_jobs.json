@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Plumbing Work",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "image": "lib/assets/plumbing.png",
+        "is_completed": true,
+        "tools": 10,
+        "duration": 3,
+        "price": 110
+    },
+    {
+        "title": "Home Cleaning",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "image": "lib/assets/cleaning.png",
+        "is_completed": true,
+        "tools": 10,
+        "duration": 3,
+        "price": 230
+    },
+    {
+        "title": "Painting",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "image": "lib/assets/painting.png",
+        "is_completed": true,
+        "tools": 10,
+        "duration": 3,
+        "price": 98
+    }
+]

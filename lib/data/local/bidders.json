@@ -1,0 +1,31 @@
+[
+    {
+        "name": "Lawrence Smith",
+        "image": "lib/assets/painter.png",
+        "role": "Painter",
+        "rating": "4.5",
+        "color": "#329e72"
+    },
+    {
+        "name": "Stephen",
+        "image": "lib/assets/painter.png",
+        "role": "Plumber",
+        "rating": "4.4",
+        "color": "#9b9f0d"
+    },
+    {
+        "name": "Kiran Kumar",
+        "image": "lib/assets/carpenter.png",
+        "role": "Carpenter",
+        "rating": "4.1",
+        "color": "#0e82c6"
+    },
+    {
+        "name": "Simon Yard",
+        "image": "lib/assets/cleaner.png",
+        "role": "Cleaner",
+        "rating": "4.3",
+        "color": "#c86506"
+    }
+    
+]

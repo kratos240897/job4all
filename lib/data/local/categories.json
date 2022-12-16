@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Handyman",
+        "image": "lib/assets/handyman.png"
+    },
+    {
+        "title": "Mechanic",
+        "image": "lib/assets/mechanic.png"
+    },
+    {
+        "title": "Towing",
+        "image": "lib/assets/towing.png"
+    },
+    {
+        "title": "Lawn",
+        "image": "lib/assets/lawn.png"
+    },
+    {
+        "title": "Baby sitting",
+        "image": "lib/assets/baby_sitting.png"
+    },
+    {
+        "title": "Pet Sitting",
+        "image": "lib/assets/pet_sitting.png"
+    },
+    {
+        "title": "House Sitting",
+        "image": "lib/assets/house_sitting.png"
+    },
+    {
+        "title": "Food",
+        "image": "lib/assets/food.png"
+    }
+]
