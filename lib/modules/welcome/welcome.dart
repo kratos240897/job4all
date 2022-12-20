@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:job4all/constants/app_constants.dart';
+import 'package:job4all/extensions/dimen_extension.dart';
 import 'package:job4all/modules/welcome/welcome_controller.dart';
 import 'package:job4all/styles/app_colors.dart';
 

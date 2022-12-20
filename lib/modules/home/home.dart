@@ -4,15 +4,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:job4all/constants/app_constants.dart';
 import 'package:job4all/data/model/banners.dart';
 import 'package:job4all/data/model/job.dart';
 import 'package:job4all/data/model/job_match.dart';
 import 'package:job4all/extensions/color_extension.dart';
+import 'package:job4all/extensions/dimen_extension.dart';
 import 'package:job4all/modules/home/home_controller.dart';
 import 'package:job4all/styles/app_colors.dart';
 import 'package:job4all/styles/app_images.dart';
@@ -56,16 +55,20 @@ class Home extends GetView<HomeController> {
                         16.verticalSpace,
                         Text(
                           'All Categories',
-                          style: GoogleFonts.poppins().copyWith(
-                              fontSize: 14.sp, fontWeight: FontWeight.w600),
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w600),
                         ),
                         8.verticalSpace,
                         CategoriesWidget(controller: controller),
                         16.verticalSpace,
                         Text(
                           'Popular Bidder',
-                          style: GoogleFonts.poppins().copyWith(
-                              fontSize: 14.sp, fontWeight: FontWeight.w600),
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w600),
                         ),
                         8.verticalSpace,
                         BiddersWidget(controller: controller),
@@ -76,7 +79,8 @@ class Home extends GetView<HomeController> {
                               16.verticalSpace,
                               Text(
                                 'Recent Jobs',
-                                style: GoogleFonts.poppins().copyWith(
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w600),
                               ),
@@ -92,7 +96,8 @@ class Home extends GetView<HomeController> {
                                 children: [
                                   Text(
                                     'Job Matches',
-                                    style: GoogleFonts.poppins().copyWith(
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
                                         fontSize: 14.sp,
                                         fontWeight: FontWeight.w600),
                                   ),
@@ -403,7 +408,8 @@ class CategoriesWidget extends StatelessWidget {
                     child: Text(
                       category.title,
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.poppins().copyWith(
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
                           fontSize: 11.sp, fontWeight: FontWeight.w600),
                     ),
                   )

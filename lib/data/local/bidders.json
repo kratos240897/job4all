@@ -8,7 +8,7 @@
     },
     {
         "name": "Stephen",
-        "image": "lib/assets/painter.png",
+        "image": "lib/assets/plumber.png",
         "role": "Plumber",
         "rating": "4.4",
         "color": "#9b9f0d"
