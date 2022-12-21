@@ -29,12 +29,16 @@ class Home extends GetView<HomeController> {
         elevation: 0,
         actions: [
           Padding(
-              padding: EdgeInsets.only(right: 16.w),
+              padding: const EdgeInsets.only(right: 16.0),
               child: GestureDetector(
-                  onTap: () {}, child: AppImages.notificationIcon)),
+                  onTap: () {},
+                  child:
+                      AppImages.notificationIcon(height: 22.0, width: 19.25))),
           Padding(
-              padding: EdgeInsets.only(right: 16.w),
-              child: GestureDetector(onTap: () {}, child: AppImages.menuIcon))
+              padding: const EdgeInsets.only(right: 16.0),
+              child: GestureDetector(
+                  onTap: () {},
+                  child: AppImages.menuIcon(height: 21.88, width: 21.88)))
         ],
       ),
       body: SafeArea(
@@ -44,7 +48,7 @@ class Home extends GetView<HomeController> {
                   child: CupertinoActivityIndicator(),
                 )
               : Padding(
-                  padding: EdgeInsets.all(12.sp),
+                  padding: const EdgeInsets.all(12.0),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,75 +56,81 @@ class Home extends GetView<HomeController> {
                         BannerWidget(
                           banners: controller.banners.value,
                         ),
-                        16.verticalSpace,
-                        Text(
-                          'All Categories',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        8.verticalSpace,
-                        CategoriesWidget(controller: controller),
-                        16.verticalSpace,
-                        Text(
-                          'Popular Bidder',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        8.verticalSpace,
-                        BiddersWidget(controller: controller),
+                        if (role != AppConstants.BIDDER)
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 18.0),
+                              const Text(
+                                'All Categories',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(height: 15.0),
+                              CategoriesWidget(controller: controller),
+                              const SizedBox(height: 23.0),
+                              const Text(
+                                'Popular Bidder',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(height: 19.0),
+                              BiddersWidget(controller: controller),
+                            ],
+                          ),
                         if (role == AppConstants.POSTER)
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              16.verticalSpace,
-                              Text(
+                              const SizedBox(height: 26.0),
+                              const Text(
                                 'Recent Jobs',
                                 style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                    fontSize: 14.sp,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 18.0,
                                     fontWeight: FontWeight.w600),
                               ),
-                              8.verticalSpace,
+                              const SizedBox(height: 13.0),
                               JobsWidget(controller: controller),
                             ],
                           ),
                         if (role == AppConstants.BIDDER)
                           Column(
                             children: [
-                              16.verticalSpace,
+                              const SizedBox(height: 30.0),
                               Row(
                                 children: [
-                                  Text(
-                                    'Job Matches',
+                                  const Text(
+                                    'Jobs match with you',
                                     style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                        fontSize: 14.sp,
+                                        fontSize: 18.0,
                                         fontWeight: FontWeight.w600),
                                   ),
                                   const Spacer(),
                                   Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 12.sp, vertical: 6.sp),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0, vertical: 6.0),
                                     decoration: BoxDecoration(
                                         borderRadius:
-                                            BorderRadius.circular(12.r),
+                                            BorderRadius.circular(10.0),
                                         color: AppColors.primaryColor),
                                     child: Text('View all Jobs',
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyMedium
                                             ?.copyWith(
+                                                fontFamily: 'Poppins',
                                                 color: Colors.white,
-                                                fontSize: 10.sp,
+                                                fontSize: 11.0,
                                                 fontWeight: FontWeight.w600)),
                                   ),
                                 ],
                               ),
-                              8.verticalSpace,
+                              const SizedBox(height: 22.0),
                               JobsWidget(
                                 controller: controller,
                                 isJobMatch: true,
@@ -151,28 +161,30 @@ class JobsWidget extends StatelessWidget {
       itemCount: isJobMatch
           ? controller.jobMatches.length
           : controller.recentJobs.length,
-      itemExtent: 0.14.sh,
       itemBuilder: (context, index) {
         final job = isJobMatch
             ? controller.jobMatches[index]
             : controller.recentJobs[index];
-        return Padding(
-          padding: EdgeInsets.symmetric(vertical: 2.h),
+        return Container(
+          height: 100.0,
+          width: 390.0,
+          margin: const EdgeInsets.only(bottom: 20.0),
           child: Card(
             color: Colors.white,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.r)),
+                borderRadius: BorderRadius.circular(10.0)),
             child: Padding(
-              padding: EdgeInsets.all(12.sp),
+              padding: const EdgeInsets.only(
+                  left: 14.12, right: 16.16, top: 15.0, bottom: 11.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
                     isJobMatch ? (job as JobMatch).image : (job as Job).image,
-                    height: 60.h,
-                    width: 60.w,
+                    height: 65.53,
+                    width: 65.38,
                   ),
-                  8.horizontalSpace,
+                  const SizedBox(width: 8.08),
                   Expanded(
                     child: Column(
                       children: [
@@ -186,12 +198,13 @@ class JobsWidget extends StatelessWidget {
                                     .textTheme
                                     .bodyMedium
                                     ?.copyWith(
-                                        fontSize: 12.sp,
+                                        fontSize: 14.0,
                                         fontWeight: FontWeight.w600)),
                             const Spacer(),
                             Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 12.sp, vertical: 5.sp),
+                              height: 21.0,
+                              width: 73.76,
+                              alignment: Alignment.center,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12.r),
                                   color: isJobMatch
@@ -208,12 +221,12 @@ class JobsWidget extends StatelessWidget {
                                       .bodyMedium
                                       ?.copyWith(
                                           color: Colors.white,
-                                          fontSize: 9.sp,
+                                          fontSize: 10.0,
                                           fontWeight: FontWeight.w600)),
                             ),
                           ],
                         ),
-                        4.verticalSpace,
+                        const SizedBox(height: 6.0),
                         Text(
                           isJobMatch
                               ? (job as JobMatch).description
@@ -224,31 +237,36 @@ class JobsWidget extends StatelessWidget {
                               .textTheme
                               .bodyMedium
                               ?.copyWith(
-                                  fontSize: 12.sp, fontWeight: FontWeight.w400),
+                                  fontSize: 10.0, fontWeight: FontWeight.w500),
                         ),
-                        const Spacer(),
+                        const SizedBox(height: 9.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             _jobDetailsWidget(
-                                AppImages.toolsIcon,
+                                AppImages.toolsIcon(height: 15.0, width: 15.16),
                                 isJobMatch
                                     ? (job as JobMatch).tools.toString()
                                     : (job as Job).tools.toString()),
                             _jobDetailsWidget(
                                 isJobMatch
-                                    ? AppImages.watchersIcon
-                                    : AppImages.durationIcon,
+                                    ? AppImages.watchersIcon(
+                                        height: 12.0, width: 18.0)
+                                    : AppImages.durationIcon(
+                                        height: 13.0, width: 13.13),
                                 isJobMatch
                                     ? (job as JobMatch).watchers.toString()
                                     : (job as Job).duration.toString()),
                             _jobDetailsWidget(
                                 isJobMatch
-                                    ? AppImages.likesIcon
-                                    : AppImages.priceIcon,
+                                    ? AppImages.likesIcon(
+                                        height: 13.0, width: 14.86)
+                                    : AppImages.priceIcon(
+                                        height: 12.0, width: 15.16),
                                 isJobMatch
                                     ? (job as JobMatch).likes.toString()
-                                    : (job as Job).price.toString())
+                                    : (job as Job).price.toString()),
+                            const SizedBox(width: 57.59)
                           ],
                         )
                       ],
@@ -265,7 +283,13 @@ class JobsWidget extends StatelessWidget {
 
   Row _jobDetailsWidget(SvgPicture icon, String value) {
     return Row(
-      children: [icon, 6.horizontalSpace, Text(value)],
+      children: [
+        icon,
+        const SizedBox(
+          width: 6.06,
+        ),
+        Text(value)
+      ],
     );
   }
 }
@@ -278,94 +302,95 @@ class BiddersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 0.2.sh,
+      height: 125.0,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemExtent: 0.35.sw,
         itemCount: controller.bidders.length,
         itemBuilder: (context, index) {
           final bidder = controller.bidders[index];
-          return Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.r)),
-            margin: EdgeInsets.only(
-                right: (index != controller.bidders.length - 1) ? 14.w : 0),
-            child: LayoutBuilder(builder: (context, constraints) {
-              return Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      width: double.infinity,
-                      alignment: Alignment.center,
-                      height: constraints.maxHeight / 1.75,
-                      decoration: BoxDecoration(
-                          color: bidder.color.toColor(),
-                          borderRadius: BorderRadius.circular(12.r)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+          return Container(
+            width: 100.0,
+            height: 125.0,
+            margin: EdgeInsets.only(left: index == 0 ? 0.0 : 15.0),
+            child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)),
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        height: 75.0,
+                        decoration: BoxDecoration(
+                            color: bidder.color.toColor(),
+                            borderRadius: BorderRadius.circular(10.0)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              bidder.name,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(
+                                      fontSize: 10.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white),
+                            ),
+                            const SizedBox(height: 3.0),
+                            Text(
+                              bidder.role,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(
+                                      fontSize: 10.0, color: Colors.white),
+                            ),
+                            const SizedBox(height: 11.0),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 6.0,
+                      right: 6.0,
+                      child: Row(
                         children: [
+                          AppImages.starIcon(height: 9.0, width: 9.4),
+                          const SizedBox(width: 3.6),
                           Text(
-                            bidder.name,
+                            bidder.rating,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium
                                 ?.copyWith(
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white),
-                          ),
-                          4.verticalSpace,
-                          Text(
-                            bidder.role,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.white),
-                          ),
-                          (constraints.maxHeight * 0.06).verticalSpace
+                                  fontSize: 10.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                          )
                         ],
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: 6.h,
-                    right: 8.w,
-                    child: Row(
-                      children: [
-                        AppImages.starIcon,
-                        4.horizontalSpace,
-                        Text(
-                          bidder.rating,
-                          style:
-                              Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 30.r,
-                          backgroundImage: AssetImage(bidder.image),
-                        ),
-                        (constraints.maxHeight * 0.075).verticalSpace
-                      ],
-                    ),
-                  )
-                ],
-              );
-            }),
+                    SizedBox(
+                      width: double.infinity,
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 23.0),
+                          Container(
+                            height: 53.0,
+                            width: 53.0,
+                            decoration:
+                                const BoxDecoration(shape: BoxShape.circle),
+                            child: Image.asset(bidder.image),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                )),
           );
         },
       ),
@@ -382,17 +407,13 @@ class CategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 0.25.sh,
       child: LayoutBuilder(builder: (context, gridViewConstraints) {
         return GridView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: controller.categories.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisExtent: gridViewConstraints.maxHeight / 2,
-              crossAxisCount: 4,
-              crossAxisSpacing: 8.w,
-              mainAxisSpacing: 4.h),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4, crossAxisSpacing: 8.0, mainAxisSpacing: 25.0),
           itemBuilder: (context, index) {
             final category = controller.categories[index];
             return LayoutBuilder(builder: (context, constraints) {
@@ -400,17 +421,19 @@ class CategoriesWidget extends StatelessWidget {
                 children: [
                   Image.asset(
                     category.image,
-                    height: constraints.maxHeight * 0.70,
+                    width: 90.0,
+                    height: 70.0,
                     fit: BoxFit.fill,
                   ),
-                  (constraints.maxHeight * 0.05).verticalSpace,
+                  const SizedBox(height: 4.0),
                   FittedBox(
                     child: Text(
                       category.title,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                          fontSize: 11.sp, fontWeight: FontWeight.w600),
+                      style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w600),
                     ),
                   )
                 ],
@@ -442,39 +465,42 @@ class _BannerWidgetState extends State<BannerWidget> {
     return widget.banners.isNotEmpty
         ? Stack(
             children: [
-              SizedBox(
-                  height: 0.25.sh,
-                  child: PageView.builder(
-                    itemCount: widget.banners.length,
-                    controller: widget._pageContoller,
-                    onPageChanged: (value) => setState(() {
-                      currentIndex = value.toDouble();
-                    }),
-                    itemBuilder: (context, index) {
-                      final banner = widget.banners[index];
-                      return Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.r)),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.r),
-                          child: CachedNetworkImage(
-                            imageUrl: banner.image,
-                            fit: BoxFit.cover,
+              Center(
+                child: SizedBox(
+                    width: 391.0,
+                    height: 187.0,
+                    child: PageView.builder(
+                      itemCount: widget.banners.length,
+                      controller: widget._pageContoller,
+                      onPageChanged: (value) => setState(() {
+                        currentIndex = value.toDouble();
+                      }),
+                      itemBuilder: (context, index) {
+                        final banner = widget.banners[index];
+                        return Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6.0)),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(6.0),
+                            child: CachedNetworkImage(
+                              imageUrl: banner.image,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  )),
+                        );
+                      },
+                    )),
+              ),
               Positioned(
                 left: 0.0,
                 right: 0.0,
-                bottom: 12.sp,
+                bottom: 10.0,
                 child: DotsIndicator(
                   dotsCount: widget.banners.length,
                   position: currentIndex,
                   decorator: DotsDecorator(
-                    size: Size.square(8.sp),
-                    activeSize: Size(16.sp, 8.sp),
+                    size: const Size.square(8.0),
+                    activeSize: const Size(16.0, 8.0),
                     activeColor: Colors.white,
                     activeShape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0)),

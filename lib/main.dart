@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await ScreenUtils().init();
+  await ScreenUtils().init(minTextAdapt: true);
   Get.lazyPut(() => AppRepo(), fenix: true);
   runApp(const MyApp());
 }
